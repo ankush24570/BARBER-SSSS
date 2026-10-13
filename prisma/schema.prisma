@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Service {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  description String
+  price       Float
+  duration    Int // minutes
+  icon        String
+  popular     Boolean   @default(false)
+  sortOrder   Int       @default(0)
+  active      Boolean   @default(true)
+  bookings    Booking[]
+}
+
+model Booking {
+  id           String    @id @default(cuid())
+  code         String    @unique
+  serviceId    String
+  service      Service   @relation(fields: [serviceId], references: [id])
+  customerName String
+  phone        String
+  email        String?
+  date         String // YYYY-MM-DD
+  timeSlot     String // HH:mm
+  isExpress    Boolean   @default(false)
+  expressFee   Float     @default(0)
+  totalPrice   Float
+  notes        String?
+  status       String    @default("CONFIRMED")
+  createdAt    DateTime  @default(now())
+
+  @@index([date, timeSlot])
+}

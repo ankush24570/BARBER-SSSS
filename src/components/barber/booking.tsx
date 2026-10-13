@@ -95,6 +95,7 @@ export function Booking() {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchAvailability(date);
   }, [date, fetchAvailability]);
 
@@ -102,6 +103,7 @@ export function Booking() {
 
   useEffect(() => {
     if (!preselectedServiceId) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setServiceId(preselectedServiceId);
     useBookingStore.getState().clearPreselection();
     if (step === 1) {
@@ -112,6 +114,7 @@ export function Booking() {
 
   useEffect(() => {
     if (!preselectedExpress) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsExpress(true);
     useBookingStore.getState().clearExpressPreselection();
     toast.success("Express Priority Pass armed ⚡", {

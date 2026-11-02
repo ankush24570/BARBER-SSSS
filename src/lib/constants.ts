@@ -1,7 +1,7 @@
 // Shared business constants — safe for both client and server
 
 export const SHOP_NAME = "Fade & Blade";
-export const SHOP_TAGLINE = "Classic Cuts. Modern Edge.";
+export const SHOP_TAGLINE = "Barbering & Beauty. Booked in Seconds.";
 
 /** Opening hours (24h). First slot start & last slot start are derived below. */
 export const OPEN_HOUR = 10; // 10:00 AM
@@ -13,7 +13,7 @@ export const CHAIRS_PER_SLOT = 3; // standard chairs
 export const EXPRESS_CHAIRS_PER_SLOT = 2; // chairs always reserved for express members
 
 /** Extra charge for the Express / Priority Pass booking */
-export const EXPRESS_FEE = 12; // $
+export const EXPRESS_FEE = 99; // ₹, flat per visit
 
 /** How many days ahead the booking calendar shows (including today) */
 export const BOOKING_DAYS_AHEAD = 14;
@@ -37,11 +37,11 @@ export const EXPRESS_BENEFITS = [
     desc: "Streamlined service on a dedicated chair so you are in and out in record time.",
   },
   {
-    title: "Complimentary Hot Towel & Drink",
-    desc: "A hot towel finish and a drink on the house while you get sharped up.",
+    title: "Complimentary Finish & Drink",
+    desc: "A signature finish touch and a drink on the house while you get pampered.",
   },
 ] as const;
 
 export function formatPrice(n: number): string {
-  return `$${Number.isInteger(n) ? n.toFixed(0) : n.toFixed(2)}`;
+  return `₹${new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(n)}`;
 }

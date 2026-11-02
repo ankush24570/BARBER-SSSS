@@ -15,8 +15,8 @@ export function Footer() {
             <span className="font-display text-2xl tracking-wider">{SHOP_NAME}</span>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-            A modern take on the classic neighborhood barbershop. Sharp looks,
-            honest craft and chairs you can actually book.
+            A modern take on the classic neighborhood unisex salon. Barbering
+            and beauty under one roof, with chairs you can actually book.
           </p>
         </div>
 

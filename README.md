@@ -4,7 +4,7 @@
 
 ### *Sharp Looks. Zero Wait.*
 
-**A premium barbershop booking experience with real-time time-slot scheduling, cinematic animations, and an Express Priority Pass — the special paid booking that lets customers skip the queue entirely.**
+**A premium unisex-salon booking experience — barber chair and beauty parlor under one roof — with real-time time-slot scheduling, cinematic animations, and an Express Priority Pass: the special paid booking that lets customers skip the queue entirely.**
 
 <br>
 
@@ -54,9 +54,9 @@
 
 ## 🧔 About The Project
 
-**Fade & Blade** is a full booking experience for a modern barbershop — not just a landing page with a phone number. Customers browse the service menu, pick a day and an exact 30-minute time slot, watch the available chairs update in real time, and lock in their appointment with a unique `FB-XXXXXX` confirmation code.
+**Fade & Blade** is a full booking experience for a modern unisex salon — barbering and beauty together — not just a landing page with a phone number. Customers browse the 12-service menu (cuts & shaves, facials, hair spa, makeup, mani-pedi), pick a day and an exact 30-minute time slot, watch the available chairs update in real time, and lock in their appointment with a unique `FB-XXXXXX` confirmation code.
 
-The signature feature is the **Express Priority Pass** — a special booking tier with an **extra charge (+$12)** that buys a guaranteed zero-wait experience: reserved chairs that standard bookings can never touch, a 5-minute guaranteed start, and a hot-towel finish on the house. Even when every standard chair is sold out, Express seats stay open — and the UI actively offers the upgrade when a slot is full.
+The signature feature is the **Express Priority Pass** — a special booking tier with an **extra charge (+₹99)** that buys a guaranteed zero-wait experience: reserved chairs that standard bookings can never touch, a 5-minute guaranteed start, and a signature finish + drink on the house. Even when every standard chair is sold out, Express seats stay open — and the UI actively offers the upgrade when a slot is full.
 
 Every pixel was designed to feel like the shop itself: espresso-dark interiors, amber-gold light, a spinning barber pole, and motion everywhere — staggered text reveals, tilt-on-hover cards, animated totals, and a confetti burst on confirmation.
 
@@ -92,20 +92,22 @@ Directly under the hero, an infinitely scrolling ribbon loops the shop's promise
 
 <img src="docs/screenshots/02-services-menu.png" alt="Services menu" width="100%">
 
-Six services are seeded into SQLite and served from `GET /api/services`. Each card features:
+Twelve services (six barber, six beauty) are seeded into SQLite and served from `GET /api/services`. Each card features:
 
 - **3D hover tilt** — the card rotates toward your cursor with a spring physics transition (Framer Motion), plus an amber border glow.
 - **"Most Wanted" badges** for popular services, icon chips, duration & price rows.
 - **One-click booking** — the "Book this" shortcut pre-fills the service in the booking flow and scrolls you straight to Step 1.
 
-| Service | Price | Duration |
-| --- | --- | --- |
-| Signature Haircut | $28 | 45 min |
-| Premium Skin Fade | $32 | 45 min |
-| Beard Sculpt & Trim | $18 | 30 min |
-| Royal Hot Towel Shave | $30 | 40 min |
-| Cut + Beard Combo | $42 | 60 min |
-| Kids Cut (u12) | $16 | 30 min |
+| Service | Price | Duration | | Service | Price | Duration |
+| --- | --- | --- | --- | --- | --- | --- |
+| Signature Haircut | ₹199 | 45 min | | Glow Facial & Clean-up | ₹599 | 45 min |
+| Premium Skin Fade | ₹249 | 45 min | | Hair Spa & Deep Care | ₹699 | 60 min |
+| Beard Sculpt & Trim | ₹149 | 30 min | | Party Makeup & Styling | ₹999 | 60 min |
+| Royal Hot Towel Shave | ₹199 | 40 min | | Luxury Mani + Pedi | ₹499 | 60 min |
+| Cut + Beard Combo | ₹299 | 60 min | | Waxing & Threading | ₹299 | 30 min |
+| Kids Cut (u12) | ₹99 | 30 min | | Women's Cut & Blow-Dry | ₹499 | 60 min |
+
+*Left: barber chair · Right: beauty parlor — one catalogue, one booking flow.*
 
 <div align="right"><a href="#-table-of-contents">⬆ back to top</a></div>
 
@@ -113,9 +115,9 @@ Six services are seeded into SQLite and served from `GET /api/services`. Each ca
 
 <img src="docs/screenshots/03-express-priority-pass.png" alt="Express Priority Pass section" width="100%">
 
-**This is the special paid booking the shop is built around.** For a flat **+$12 per visit**, the Express Pass rewrites the rules of the queue:
+**This is the special paid booking the shop is built around.** For a flat **+₹99 per visit**, the Express Pass rewrites the rules of the queue:
 
-| | 🪑 Standard Booking | ⚡ Express Priority Pass (+$12) |
+| | 🪑 Standard Booking | ⚡ Express Priority Pass (+₹99) |
 | --- | --- | --- |
 | **Chairs** | 3 shared chairs per slot | 2 chairs **reserved for Express only** |
 | **Wait time** | First free slot | **Guaranteed start within 5 minutes** |
@@ -153,7 +155,7 @@ The heart of the time-slot system:
 
 The details step is where the special booking comes alive:
 
-- **Express Priority Pass toggle** — one flip and the whole panel changes mood: the pass card lights up amber, benefits list reload in, and the ticket on the right recalculates **$32 → $44** with an animated number roll. The line item breaks the price down: `Service $32 + Express Pass +$12`.
+- **Express Priority Pass toggle** — one flip and the whole panel changes mood: the pass card lights up amber, benefits list reload in, and the ticket on the right recalculates **₹249 → ₹348** with an animated number roll. The line item breaks the price down: `Service ₹249 + Express Pass +₹99`.
 - **Your Ticket** — a live summary card (service, duration, date, arrival time, priority status) that updates instantly with every change, like a boarding pass being printed.
 - **Validated form** — name, phone (min 7 chars), optional email & notes, all validated client-side with react-hook-form + zod and re-validated server-side on submit.
 - **Free-cancellation hint** — "up to 2 hours before your slot. Pay at the shop — card, cash or wallet."
@@ -202,7 +204,7 @@ Slot length          30 minutes (last booking starts 7:00 PM)
 Booking window       next 14 days, including today
 Standard capacity    3 chairs per slot   → enforced by POST /api/bookings
 Express capacity     2 chairs per slot   → never shared with standard
-Express fee          flat $12, added to the service price
+Express fee          flat ₹99, added to the service price
 Confirmation code    FB-XXXXXX, confusion-safe alphabet (no O/0, I/1)
 Double-booking       blocked per (date, timeSlot, chair-pool) with HTTP 409
 ```
@@ -212,7 +214,7 @@ Double-booking       blocked per (date, timeSlot, chair-pool) with HTTP 409
 ```text
 Requested express?
 ├── YES → count express bookings in slot
-│         ├── < 2  → ✅ confirm  (price = service + $12)
+│         ├── < 2  → ✅ confirm  (price = service + ₹99)
 │         └── ≥ 2  → ❌ 409 "Express seats fully reserved"
 └── NO  → count standard bookings in slot
           ├── < 3  → ✅ confirm  (price = service)
@@ -302,7 +304,7 @@ Base URL: `/api`
 
 ### `GET /api/services`
 
-Returns the active service catalogue. **Auto-seeds the six services on first request** if the table is empty.
+Returns the active service catalogue (barber + beauty). **Auto-seeds the twelve services on first request** if the table is empty.
 
 ```jsonc
 // 200 OK
@@ -344,7 +346,7 @@ Creates a booking. Validates the date window, opening hours, past slots, service
   "serviceId": "clx…",
   "date": "2026-10-14",
   "timeSlot": "11:00",
-  "isExpress": true,            // ⚡ the special booking — adds $12
+  "isExpress": true,            // ⚡ the special booking — adds ₹99
   "customerName": "Alex Carter",
   "phone": "+1 555 010 2288",
   "email": "alex@example.com",  // optional
@@ -357,14 +359,14 @@ Creates a booking. Validates the date window, opening hours, past slots, service
     "code": "FB-T2MRGN",
     "isExpress": true,
     "expressFee": 12,
-    "totalPrice": 44,
+    "totalPrice": 348,
     "status": "CONFIRMED",
-    "service": { "name": "Premium Skin Fade", "duration": 45, "price": 32 }
+    "service": { "name": "Premium Skin Fade", "duration": 45, "price": 249 }
   }
 }
 
 // 409 Conflict (standard full, express open)
-{ "error": "Standard chairs are fully booked for this slot. Express seats may still be open — upgrade for $12 to lock it in.", "code": "SLOT_FULL_TRY_EXPRESS" }
+{ "error": "Standard chairs are fully booked for this slot. Express seats may still be open — upgrade for just ₹99 to lock it in.", "code": "SLOT_FULL_TRY_EXPRESS" }
 ```
 
 ### `GET /api/bookings?code=FB-T2MRGN`
@@ -420,7 +422,7 @@ Everything the owner would want to change lives in **`src/lib/constants.ts`** �
 | `SLOT_MINUTES` | `30` | Granularity of the time picker |
 | `CHAIRS_PER_SLOT` | `3` | Standard capacity per slot |
 | `EXPRESS_CHAIRS_PER_SLOT` | `2` | Reserved express chairs per slot |
-| `EXPRESS_FEE` | `$12` | The special booking surcharge |
+| `EXPRESS_FEE` | `₹99` | The special booking surcharge |
 | `BOOKING_DAYS_AHEAD` | `14` | How far ahead customers can book |
 | `SERVICES` (`src/lib/seed.ts`) | 6 items | The menu — name, price, duration, icon |
 

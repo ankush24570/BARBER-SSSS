@@ -20,24 +20,27 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Fade & Blade — Barbershop & Priority Booking",
+  title: "Fade & Blade — Unisex Salon & Priority Booking",
   description:
-    "Book your chair at Fade & Blade barbershop. Precision cuts, beard sculpting and hot towel shaves — or grab an Express Priority Pass and skip the queue entirely.",
+    "Book your chair at Fade & Blade unisex salon. Precision cuts, beard sculpting, facials, hair spa and makeup — or grab an Express Priority Pass and skip the queue entirely.",
   keywords: [
+    "salon booking",
     "barbershop",
+    "beauty parlor",
     "haircut booking",
-    "beard trim",
-    "hot towel shave",
+    "facial",
+    "bridal makeup",
+    "hair spa",
     "express booking",
-    "fade",
+    "unisex salon",
   ],
   icons: {
     icon: "/images/favicon.svg",
   },
   openGraph: {
-    title: "Fade & Blade — Barbershop & Priority Booking",
+    title: "Fade & Blade — Unisex Salon & Priority Booking",
     description:
-      "Precision cuts, beard sculpting and hot towel shaves. Express Priority Pass available — skip the queue.",
+      "Barbering and beauty under one roof. Express Priority Pass available — skip the queue.",
     type: "website",
   },
 };

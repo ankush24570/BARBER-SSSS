@@ -9,9 +9,9 @@ import { OPENING_HOURS_LABEL, SHOP_NAME, SHOP_TAGLINE } from "@/lib/constants";
 const HEADLINE = ["SHARP", "LOOKS,", "ZERO", "WAIT."];
 
 const STATS = [
-  { value: "12k+", label: "Cuts Delivered" },
+  { value: "12k+", label: "Makeovers Delivered" },
   { value: "4.9", label: "Google Rating", star: true },
-  { value: "6", label: "Master Barbers" },
+  { value: "8", label: "Stylists & Barbers" },
   { value: "5min", label: "Express Start", spark: true },
 ];
 
@@ -98,9 +98,10 @@ export function Hero() {
             variants={wordAnim}
             className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            {SHOP_NAME} is a modern take on the classic neighborhood shop —
-            precision cuts, beard sculpting and hot towel rituals from barbers
-            who treat it like craft. Book your slot online, or grab an{" "}
+            {SHOP_NAME} is a modern take on the classic neighborhood salon —
+            precision cuts, beard sculpting, facials, hair spa and makeup from
+            a unisex team that treats grooming like craft. Book your slot
+            online, or grab an{" "}
             <a
               href="#express"
               className="font-semibold text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:decoration-primary"

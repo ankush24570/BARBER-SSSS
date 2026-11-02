@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error:
-            "Standard chairs are fully booked for this slot. Express seats may still be open — upgrade for $12 to lock it in.",
+            "Standard chairs are fully booked for this slot. Express seats may still be open — upgrade for just ₹" + EXPRESS_FEE + " to lock it in.",
           code: "SLOT_FULL_TRY_EXPRESS",
         },
         { status: 409 }

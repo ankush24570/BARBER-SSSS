@@ -3,12 +3,18 @@
 import { motion } from "framer-motion";
 import {
   ArrowRight,
+  Brush,
   Clock,
   Crown,
+  Droplets,
   Flame,
+  Flower2,
+  Gem,
+  Hand,
   Scissors,
   Slice,
   Smile,
+  Sparkles,
   Zap,
   type LucideIcon,
 } from "lucide-react";
@@ -29,6 +35,12 @@ const ICONS: Record<string, LucideIcon> = {
   flame: Flame,
   crown: Crown,
   smile: Smile,
+  sparkles: Sparkles,
+  droplets: Droplets,
+  gem: Gem,
+  hand: Hand,
+  flower: Flower2,
+  brush: Brush,
 };
 
 export function Services() {
@@ -39,7 +51,7 @@ export function Services() {
       <SectionHeading
         kicker="The Menu"
         title="CRAFTED TO PERFECTION"
-        subtitle="Every service starts with a consultation and ends with a style that holds. Pick your service — you will choose your time in the booking bar below."
+        subtitle="Barber chair and beauty parlor under one roof. Every service starts with a consultation and ends with a finish that holds — pick one and choose your time in the booking bar below."
       />
 
       <RevealGroup className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -115,7 +115,7 @@ export function Booking() {
     setIsExpress(true);
     useBookingStore.getState().clearExpressPreselection();
     toast.success("Express Priority Pass armed ⚡", {
-      description: `A reserved chair with zero wait — just +$${EXPRESS_FEE} on top of your service.`,
+      description: `A reserved chair with zero wait — just +${formatPrice(EXPRESS_FEE)} on top of your service.`,
     });
   }, [preselectedExpress]);
 
